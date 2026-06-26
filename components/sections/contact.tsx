@@ -2,10 +2,11 @@
 
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
+import { BlueprintPlan, SpecBlock } from "@/components/ui/blueprint";
 import { ArrowIcon, BlueprintMark, FacebookIcon, InstagramIcon, PhoneIcon } from "@/components/ui/icons";
 
 const inputClass =
-  "h-12 w-full border border-line bg-ink/70 px-4 text-sm text-studio outline-none transition-colors placeholder:text-studio/38 focus:border-blueprint";
+  "h-12 w-full border border-neutral-800 bg-ink/80 px-4 text-sm text-studio outline-none transition-colors placeholder:text-studio/38 focus:border-blueprint";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
@@ -16,8 +17,10 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative bg-ink py-20 sm:py-24">
+    <section id="contact" className="relative overflow-hidden bg-ink py-20 sm:py-24">
+      <div className="absolute inset-0 blueprint-grid opacity-25" />
       <div className="absolute inset-0 noise opacity-70" />
+      <BlueprintPlan className="absolute -bottom-14 right-0 h-[360px] w-[460px] text-studio/10" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
           <motion.div
@@ -26,10 +29,11 @@ export function Contact() {
             viewport={{ once: true, margin: "-120px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-blueprint">Contact</p>
+            <p className="font-mono text-[12px] uppercase tracking-widest text-blueprint">Contact</p>
             <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-studio sm:text-5xl">
               Let's design something timeless.
             </h2>
+            <SpecBlock className="mt-6" items={["Client Intake", "Scale: 1:1", "Studio Location"]} />
             <div className="mt-9 space-y-5 text-studio/76">
               <a href="tel:8094325459" className="flex items-center gap-4 transition-colors hover:text-blueprint">
                 <PhoneIcon />
@@ -58,7 +62,7 @@ export function Contact() {
               href="https://maps.app.goo.gl/afr5tsJqGC1LedzH7"
               target="_blank"
               rel="noreferrer"
-              className="mt-9 inline-flex h-12 items-center justify-center gap-4 border border-line px-6 font-mono text-[12px] uppercase tracking-[0.14em] text-studio transition-colors hover:border-blueprint"
+              className="crosshair mt-9 inline-flex h-12 items-center justify-center gap-4 border border-neutral-700 px-6 font-mono text-[12px] uppercase tracking-[0.16em] text-studio transition-colors hover:border-blueprint"
             >
               Open Studio Map <ArrowIcon />
             </a>
@@ -70,7 +74,7 @@ export function Contact() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: "-120px" }}
             transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-            className="border-l border-line pl-0 lg:pl-12"
+            className="technical-frame border border-neutral-800 bg-ink/60 p-4 lg:p-6"
           >
             <div className="grid gap-3 sm:grid-cols-2">
               <label className="sr-only" htmlFor="name">
@@ -109,7 +113,7 @@ export function Contact() {
             />
             <button
               type="submit"
-              className="mt-3 inline-flex h-12 w-full items-center justify-center gap-4 bg-blueprint px-7 font-mono text-[12px] uppercase tracking-[0.12em] text-white transition-transform duration-300 hover:-translate-y-0.5"
+              className="crosshair mt-3 inline-flex h-12 w-full items-center justify-center gap-4 border border-blueprint bg-blueprint px-7 font-mono text-[12px] uppercase tracking-[0.16em] text-white transition-transform duration-300 hover:-translate-y-0.5"
             >
               {sent ? "Message Ready" : "Send Message"} <ArrowIcon />
             </button>
@@ -121,7 +125,7 @@ export function Contact() {
           </motion.form>
         </div>
 
-        <footer className="mt-20 flex flex-col gap-6 border-t border-line pt-8 text-sm text-studio/58 sm:flex-row sm:items-center sm:justify-between">
+        <footer className="mt-20 flex flex-col gap-6 border-t border-neutral-800 pt-8 text-sm text-studio/58 sm:flex-row sm:items-center sm:justify-between">
           <a href="#" className="flex items-center gap-3 text-studio">
             <BlueprintMark className="h-9 w-9" />
             <span className="font-display text-lg font-semibold">Gray Space Design</span>

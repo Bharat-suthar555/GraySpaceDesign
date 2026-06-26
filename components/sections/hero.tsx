@@ -19,7 +19,7 @@ function BlueprintOverlay() {
 
   return (
     <svg
-      className="absolute left-[28%] top-24 h-[390px] w-[520px] max-w-none text-studio/46 opacity-70 mix-blend-screen"
+      className="absolute left-[42%] top-28 h-[360px] w-[480px] max-w-none text-studio/24 opacity-45 mix-blend-screen sm:left-[28%] sm:top-24 sm:h-[390px] sm:w-[520px] sm:text-studio/46 sm:opacity-80"
       viewBox="0 0 420 330"
       fill="none"
       aria-hidden="true"
@@ -30,6 +30,7 @@ function BlueprintOverlay() {
           d={path}
           stroke={index === 0 ? "#007BFF" : "currentColor"}
           strokeWidth={index === 0 ? 1.25 : 0.8}
+          vectorEffect="non-scaling-stroke"
           strokeLinecap="square"
           strokeLinejoin="miter"
           initial={{ pathLength: 0, opacity: 0 }}
@@ -41,7 +42,7 @@ function BlueprintOverlay() {
           }}
         />
       ))}
-      {["6700", "3020", "2100", "4500"].map((label, index) => (
+      {["6700 mm", "3020 mm", "2100 mm", "4500 mm"].map((label, index) => (
         <motion.text
           key={label}
           x={214 + index * 26}
@@ -65,8 +66,9 @@ export function Hero() {
   const imageOpacity = useTransform(scrollYProgress, [0, 0.24], [0.9, 1]);
 
   return (
-    <section className="relative min-h-[700px] overflow-hidden border-b border-line pt-16 lg:min-h-[740px]">
+    <section className="relative min-h-[700px] overflow-hidden border-b border-neutral-800 bg-ink pt-16 lg:min-h-[740px]">
       <div className="absolute inset-0 blueprint-grid opacity-80" />
+      <div className="absolute inset-0 border-y border-white/[0.03]" />
       <div className="absolute inset-0 noise" />
       <motion.div
         style={{ scale: imageScale, opacity: imageOpacity }}
@@ -114,13 +116,13 @@ export function Hero() {
           >
             <a
               href="#work"
-              className="inline-flex h-12 items-center justify-center gap-4 bg-blueprint px-7 font-mono text-[12px] uppercase tracking-[0.12em] text-white transition-transform duration-300 hover:-translate-y-0.5"
+              className="crosshair inline-flex h-12 items-center justify-center gap-4 border border-blueprint bg-blueprint px-7 font-mono text-[12px] uppercase tracking-[0.16em] text-white transition-transform duration-300 hover:-translate-y-0.5"
             >
               Explore Projects <ArrowIcon />
             </a>
             <a
               href="#contact"
-              className="inline-flex h-12 items-center justify-center gap-4 border border-line px-7 font-mono text-[12px] uppercase tracking-[0.12em] text-studio transition-colors duration-300 hover:border-blueprint"
+              className="crosshair inline-flex h-12 items-center justify-center gap-4 border border-neutral-700 px-7 font-mono text-[12px] uppercase tracking-[0.16em] text-studio transition-colors duration-300 hover:border-blueprint"
             >
               Start Consultation <ArrowIcon />
             </a>

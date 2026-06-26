@@ -9,12 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0B0B0B",
-        panel: "#121212",
+        ink: "#0D0D0D",
+        panel: "#111111",
         studio: "#FAFAFA",
         blueprint: "#007BFF",
+        measure: "#6BAA75",
         steel: "#6B7280",
-        line: "rgba(250, 250, 250, 0.16)"
+        line: "rgba(250, 250, 250, 0.13)"
       },
       fontFamily: {
         sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],

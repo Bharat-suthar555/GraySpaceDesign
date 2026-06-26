@@ -3,20 +3,26 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { timeline } from "@/lib/data";
+import { BlueprintPlan, SpecBlock } from "@/components/ui/blueprint";
 import { ArrowIcon } from "@/components/ui/icons";
 
 export function ProcessTimeline() {
   const [active, setActive] = useState(1);
 
   return (
-    <section id="process" className="relative border-b border-line bg-ink py-20 sm:py-24">
+    <section id="process" className="relative overflow-hidden border-b border-neutral-800 bg-ink py-20 sm:py-24">
+      <div className="absolute inset-0 blueprint-grid opacity-30" />
       <div className="absolute inset-0 noise opacity-80" />
+      <BlueprintPlan className="absolute -right-20 top-12 h-[420px] w-[520px] text-studio/10" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-xl">
-          <p className="font-mono text-[12px] uppercase tracking-[0.18em] text-blueprint">Process</p>
-          <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-studio sm:text-5xl">
-            A transparent journey from concept to completion.
-          </h2>
+        <div className="flex max-w-4xl flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-xl">
+            <p className="font-mono text-[12px] uppercase tracking-widest text-blueprint">Process</p>
+            <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-studio sm:text-5xl">
+              A transparent journey from concept to completion.
+            </h2>
+          </div>
+          <SpecBlock items={["Workflow: W-01", "Revision: 03", "Line Type: Build Path"]} />
         </div>
 
         <div className="thin-scrollbar mt-14 overflow-x-auto pb-7">
@@ -45,7 +51,7 @@ export function ProcessTimeline() {
                         ? "0 0 32px rgba(0, 123, 255, 0.62)"
                         : "0 0 0 rgba(0, 123, 255, 0)"
                     }}
-                    className={`relative z-10 grid h-20 w-20 place-items-center rounded-full border ${
+                    className={`technical-frame relative z-10 grid h-20 w-20 place-items-center border ${
                       isActive ? "border-blueprint text-blueprint" : "border-studio/54 text-studio"
                     } bg-ink transition-colors duration-300`}
                   >
@@ -64,7 +70,7 @@ export function ProcessTimeline() {
           initial={{ y: 16, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-md border border-blueprint/70 bg-blueprint/[0.07] p-5 shadow-blue"
+          className="technical-frame max-w-md border border-blueprint/70 bg-blueprint/[0.07] p-5 shadow-blue"
         >
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-blueprint">
             Active Stage {timeline[active].step}
