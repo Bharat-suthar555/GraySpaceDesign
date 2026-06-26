@@ -55,15 +55,9 @@ export function Services() {
                 alt=''
                 fill
                 sizes='(max-width: 768px) 100vw, 25vw'
-                className='object-cover opacity-[0.64] transition-opacity duration-700 group-hover:opacity-[0.24]'
+                className='object-cover opacity-[0.64] transition-opacity duration-700 group-hover:opacity-0'
               />
               <div className='absolute inset-0 bg-gradient-to-t from-ink via-ink/58 to-transparent' />
-              <motion.div
-                className='absolute left-[40%] top-0 h-full w-[2px] bg-studio/80'
-                initial={false}
-                whileHover={{ rotate: 9, x: 28 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              />
               <div className='relative z-10 flex h-full min-h-[430px] flex-col justify-end p-5'>
                 <p className='font-display text-2xl font-semibold text-blueprint'>
                   {service.index}
